@@ -94,7 +94,7 @@ function! s:find_boundary_row(start_line, start_col, start_vcol, indent_level, s
     let next_line      = current_line + a:step
     let non_blank      = getline(next_line) =~ "[^ \t]"
     let same_indent    = s:indent_level(next_line) == a:indent_level
-    let has_width      = getline(next_line) =~ '\%'.a:start_vcol.'v'
+    let has_width      = getline(next_line) =~ '\%'.a:start_col.'v'
     let is_not_comment = ! s:is_comment(next_line, a:start_col)
     if same_indent && non_blank && has_width && is_not_comment
       let current_line = next_line
